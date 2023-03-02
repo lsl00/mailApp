@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link href="./style.css" rel="stylesheet">
+</head>
+<body>
+	<div>
+		<label>ID和E-mail:</label>
+		<input type="file" name="IDmail" accept=".csv">
+	</div>
+	<div>
+		<label>ID和信息:</label>
+		<input type="file" name="IDinfo" accept=".csv">
+	</div>
+	<input type="file" name="载入配置" accept=".json" id="config">
+	<div>
+		<label>Host:</label><input type="text" name="Host">
+		<label>User:</label><input type="text" name="User">
+		<label>Password:</label><input type="password" name="Pass">
+	</div>
+	<div>
+		<label>主题:</label>
+		<input type="text" name="subject">
+	</div>
+	<div>
+		<label>From:</label>
+		<input type="text" name="from">
+	</div>
+	<div>
+		<label>邮件模板:</label>
+		<textarea cols="100" rows="20"></textarea>
+	</div>
+	<button onclick="Preview()">预览一下</button>
+	<select id="whichid">
+
+	</select>
+	<form>
+		<fieldset>
+			<legend>预览</legend>
+			
+			<label>Sendto:</label>
+			<span id="sendto"></span>
+			<div id="preview"></div>
+		</fieldset>
+	</form>
+	<button onclick="SendAll()">全都发送</button>
+
+	<script src="./main.js" defer></script>
+</body>
+</html>
