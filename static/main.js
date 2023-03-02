@@ -46,6 +46,7 @@ var pass = document.querySelector("input[name='Pass']");
 var sendto = document.querySelector("#sendto");
 var preview = document.querySelector("#preview");
 var config = document.querySelector("#config");
+var statusUl = document.querySelector("#Status");
 config.addEventListener("change", function (e) {
     if (!config.files)
         return;
@@ -147,7 +148,11 @@ function SendAll() {
                 })
             })
                 .then(function (resp) { return resp.text(); })
-                .then(function (value) { return console.log("Send to ", m, value); });
+                .then(function (value) {
+                var li = document.createElement("li");
+                li.innerText = "Send to" + m + " " + value;
+                statusUl.appendChild(li);
+            });
         }
     });
 }

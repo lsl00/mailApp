@@ -11,6 +11,8 @@ const pass : HTMLInputElement = document.querySelector("input[name='Pass']");
 const sendto : HTMLSpanElement = document.querySelector("#sendto");
 const preview : HTMLTextAreaElement = document.querySelector("#preview");
 const config : HTMLInputElement = document.querySelector("#config");
+const statusUl : HTMLUListElement = document.querySelector("#Status");
+
 config.addEventListener("change",(e) => {
 	if(!config.files) return;
 	let f = config.files[0];
@@ -96,6 +98,7 @@ function SendAll(){
 	const password = pass.value;
 	const subject = subjectE.value;
 	const from = fromE.value;
+	statusUl.innerHTML = "";
 	mails.forEach((m,id) => {
 		let line = contents.get(id);
 		if(line != null){
@@ -116,7 +119,11 @@ function SendAll(){
 				})
 			})
 			.then(resp => resp.text())
-			.then(value => console.log("Send to ",m,value));
+			.then(value => {
+				let li = document.createElement("li");
+				li.innerText = "Send to " + m + " " + value;
+				statusUl.appendChild(li);
+			});
 		}
 	})
 }

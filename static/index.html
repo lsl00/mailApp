@@ -15,7 +15,8 @@
 		<label>ID和信息:</label>
 		<input type="file" name="IDinfo" accept=".csv">
 	</div>
-	<input type="file" name="载入配置" accept=".json" id="config">
+		<label>载入配置</label>
+	<input type="file"  accept=".json" id="config">
 	<div>
 		<label>Host:</label><input type="text" name="Host">
 		<label>User:</label><input type="text" name="User">
@@ -47,7 +48,7 @@
 		</fieldset>
 	</form>
 	<button onclick="SendAll()">全都发送</button>
-
+	<ul id="Status"></ul>
 	<script src="./main.js" defer></script>
 </body>
 </html>

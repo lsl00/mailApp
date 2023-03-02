@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/smtp"
+	"time"
 )
 
 func sendMail(data map[string]string) (err error) {
@@ -30,6 +31,7 @@ func send(w http.ResponseWriter, r *http.Request) {
 		fmt.Printf("Send to %s Succeeded!\n", formData["to"])
 		w.Write([]byte("OK"))
 	}
+	time.Sleep(20 * time.Millisecond)
 }
 
 func main() {
